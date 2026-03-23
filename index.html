@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fascino's</title>
+    
+    <!-- Fontes Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@200;300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets\fascinos_icone.png">
+    <!-- Tailwind & Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            50: '#fdfbf7',
+                            100: '#f9f3e6',
+                            200: '#efdfc2',
+                            300: '#dfc28d',
+                            400: '#d0a25b',
+                            500: '#c5a059', // Cor mestre
+                            600: '#a67c42',
+                        },
+                        onyx: '#121212',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        display: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #59c55e 0%, #efdfc2 50%, #a67c42 100%);
+            background: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-nav {
+            background: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .hero-video-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(18,18,18,0.4) 0%, rgba(18,18,18,0.8) 100%);
+        }
+
+
+        @media (max-width: 768px) {
+            .custom-cursor { display: none; }
+        }
+    </style>
+</head>
+
+<body class="bg-onyx text-gray-200 font-sans selection:bg-gold-500 selection:text-white overflow-x-hidden">
+
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-[100] glass-nav  duration-500 py-4 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <!--imagem do menu-->
+                <img src="assets/fascinos_logo.png" class="w-28 h-23 " alt="Fascinos Logo">
+
+            </div>
+            
+            <div class="hidden md:flex items-center gap-12 text-[10px] uppercase tracking-[0.3em] font-semibold">
+                <a href="#" class="hover:text-gold-300 transition-colors">Home</a>
+                <a href="#unidades" class="hover:text-gold-300 transition-colors">Unidades</a>
+                <a href="#social" class="hover:text-gold-300 transition-colors">Atendimento</a>
+                <a href="https://api.whatsapp.com/send?phone=5586994072730&text=Ol%C3%A1,%20quero%20agendar%20um%20hor%C3%A1rio." class="bg-gold-500 text-onyx px-6 py-2 rounded-full hover:bg-gold-400 transition-all transform hover:scale-105 text-white">Agendar</a>
+            </div>
+
+            <button id="menu-toggle" class="md:hidden text-gold-500 text-2xl">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="fixed inset-0 bg-onyx z-[110] flex flex-col items-center justify-center gap-8 translate-x-full transition-transform duration-700">
+        <button id="menu-close" class="absolute top-8 right-8 text-3xl text-gold-500"><i class="fa-solid fa-xmark"></i></button>
+        <a href="#" class="text-3xl text-[10px] uppercase tracking-[0.3em] font-semibold text-gold-200">home</a>
+        <a href="#unidades" class="text-3xl text-[10px] uppercase tracking-[0.3em] font-semibold text-gold-200">Localização</a>
+        <a href="https://api.whatsapp.com/send?phone=5586994072730&text=Ol%C3%A1,%20quero%20agendar%20um%20hor%C3%A1rio." class="mt-4 bg-gold-500 text-onyx px-10 py-4 rounded-full font-bold">AGENDAR AGORA</a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="hero-video-container absolute inset-0 w-full h-full z-0">
+            <!-- Video Fallback com imagem de alta qualidade se o vídeo falhar -->
+            <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                <source src="assets\lv_0_20260320101721.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="relative z-10 text-center px-4">
+            <img src="assets/fascinos10.png" class="w-72 lg:w-[500px] mb-8">
+
+            <div class="reveal">
+                <a href="#unidades" class="group relative inline-flex items-center gap-4 px-10 py-4 border border-gold-500 rounded-full overflow-hidden transition-all duration-500 hover:bg-gold-500">
+                    <span class="relative z-10 font-semibold tracking-widest text-xs uppercase group-hover:text-onyx">Conheça Nossas Casas</span>
+                    <i class="fa-solid fa-arrow-right relative z-10 group-hover:text-onyx group-hover:translate-x-2 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-gold-500/50 animate-bounce">
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </section>
+
+
+    <!-- MANIFESTO SECTION -->
+    <section class="py-24 px-6 bg-white text-onyx">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+            <div class="w-full md:w-1/2 relative reveal">
+                <div class="absolute -top-4 -left-4 w-32 h-32 border-t-2 border-l-2 border-gold-500"></div>
+                
+
+                <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                    <source src="assets\0_Hair_Salon_Haircut_3840x2160.mp4" type="video/mp4">
+                </video>
+                <!-- <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=800" alt="Studio" class="rounded-sm shadow-2xl relative z-10"> -->
+                <div class="absolute -bottom-8 -right-8 bg-gold-500 p-8 hidden md:block z-20">
+                    <p class="text-white font-serif italic text-2xl">"Onde a arte encontra o bem-estar."</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 space-y-8 reveal">
+                <span class="text-gold-600 font-bold tracking-widest text-xs uppercase">Nosso Manifesto</span>
+                <h2 class="text-4xl md:text-6xl font-display leading-tight">Excelência em cada<span class="text-gold-500 italic"> detalhe.</span></h2>
+                <p class="text-gray-600 leading-relaxed font-light text-lg">
+                    
+                    Na Fascino's Corpo e Cabelo, entregamos muito mais do que serviços de beleza,Desenvolvemos protocolos e procedimentos personalizados que celebram a individualidade de da cliente, em ambientes projetados para proporcionar sempre a melhor experiência.
+                </p>
+                <div class="flex gap-8 pt-4">
+                    <div>
+                        <p class="text-3xl font-display text-gold-500">10+</p>
+                        <p class="text-[10px] uppercase tracking-wider text-gray-400">Anos de História</p>
+                    </div>
+                    <!-- <div>
+                        <p class="text-3xl font-display text-gold-500">15k+</p>
+                        <p class="text-[10px] uppercase tracking-wider text-gray-400">Clientes Atendidos</p>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNIDADES SECTION -->
+    <section id="unidades" class="py-24 bg-[#fcfaf7]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-5xl font-display text-onyx mb-4">Nossas <span class="italic font-serif">Unidades</span></h2>
+                <div class="w-20 h-1 bg-gold-500 mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Unidade 01 -->
+                <div class="group relative overflow-hidden bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 reveal">
+                    <div class="h-64 overflow-hidden">
+                        <img src="assets\img_unidade1.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <h3 class="text-2xl font-display text-onyx">Unidade Capitão Claro</h3>
+                            </div>
+                            <span class="bg-gold-500 text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase">Matriz</span>
+                        </div>
+                        <p class="text-gray-500 text-sm mb-8 leading-relaxed">
+                            Av. Cap. Claro, 428 - Centro<br>Parnaíba, PI
+                        </p>
+                        <div class="flex flex-col gap-3">
+                            <a href="https://www.google.com/maps/place/Fascino's+Corpo+%26+Cabelo/@-2.9090991,-41.7761412,217m/data=!3m1!1e3!4m6!3m5!1s0x7ec2fe7b0a8884d:0xdc55504cb3c788c!8m2!3d-2.9089303!4d-41.7764711!16s%2Fg%2F11c1wrkb2y?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center justify-center gap-2 border border-onyx py-4 rounded-full font-bold text-gray-700 text-xs uppercase hover:bg-onyx hover:text-white transition-all">
+                                <i class="fa-solid fa-location-dot"></i> Ver localização
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unidade 02 -->
+                <div class="group relative overflow-hidden bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 reveal">
+                    <div class="h-64 overflow-hidden">
+                        <img src="assets\img_unidade2.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <h3 class="text-2xl font-display text-onyx">Unidade São Sebastião</h3>
+                            </div>
+                            <span class="bg-gold-500 text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase">Premium</span>
+                        </div>
+                        <p class="text-gray-500 text-sm mb-8 leading-relaxed">
+                            Av. São Sebastião, 1316 <br>Parnaíba, PI
+                        </p>
+                        <div class="flex flex-col gap-3">
+                            <a href="https://www.google.com/maps/place/FAscino%C2%B4s+Corpo+%26+Cabelo+2/@-2.9094122,-41.7685974,217m/data=!3m2!1e3!4b1!4m6!3m5!1s0x7ec2fb15026e933:0x14f9308ea49e360d!8m2!3d-2.9094122!4d-41.7679537!16s%2Fg%2F11n9whdjkh?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="flex items-center justify-center gap-2 border border-onyx py-4 rounded-full font-bold text-gray-700 text-xs uppercase hover:bg-onyx hover:text-white transition-all">
+                                <i class="fa-solid fa-location-dot"></i> Ver localização
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Horários & CTA -->
+            <div class="mt-20 p-8 md:p-12 bg-onyx rounded-[3rem] text-white flex flex-col md:flex-row items-center gap-12 reveal">
+                <div class="flex-1 space-y-6">
+                    <h4 class="text-3xl font-serif italic text-gold-300">Horários de Atenção</h4>
+                    <div class="space-y-4 font-light text-gray-400">
+                        <div class="flex justify-between border-b border-white/10 pb-2">
+                            <span>Segunda a Sexta</span>
+                            <span class="text-white font-medium">08:00 — 18:30</span>
+                        </div>
+                        <div class="flex justify-between border-b border-white/10 pb-2">
+                            <span>Sábado</span>
+                            <span class="text-white font-medium">08:00 — 18:30</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <p class="text-gray-400 mb-8 font-light">Sua jornada de beleza começa com um clique. Reserve seu horário com uma de nossas atendentes.</p>
+                    <a href="https://api.whatsapp.com/send?phone=5586994072730&text=Ol%C3%A1,%20quero%20agendar%20um%20hor%C3%A1rio." class="inline-flex items-center gap-4 bg-gold-500 text-white px-12 py-5 rounded-full font-bold hover:bg-gold-400 transition-all shadow-lg hover:shadow-gold-500/20">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        RESERVAR HORÁRIO
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL & CONEXÃO -->
+    <section id="social" class="py-24 bg-white text-onyx">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-display mb-16 reveal">Acompanhe nosso <span class="italic font-serif text-gold-500">Universo</span></h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 reveal">
+
+
+                <a href="https://www.instagram.com/fascinoscorpoecabelo" target="_blank" class="group">
+                    <div class="w-16 h-16 mx-auto mb-4 border border-gold-300 rounded-full flex items-center justify-center group-hover:bg-gold-500 group-hover:text-white transition-all duration-300">
+                        <i class="fa-brands fa-instagram text-2xl"></i>
+                    </div>
+                    <p class="text-[10px] uppercase tracking-widest font-bold">Fascino's corpo e cabelo</p>
+                </a>
+
+
+
+                <!--Spotify-->
+                <a href="https://open.spotify.com/playlist/165R0KVM5r7ubrDs3kO8oP?go=1&sp_cid=7e1228b032995457dbc199bfb6b45530&utm_source=embed_player_p&utm_medium=desktop&nd=1&dlsi=8f8b0369a880472a" target="_blank" class="group">
+                    <div class="w-16 h-16 mx-auto mb-4 border border-gold-300 rounded-full flex items-center justify-center group-hover:bg-[#1DB954] group-hover:text-white transition-all duration-300">
+                        <i class="fa-brands fa-spotify text-2xl"></i>
+                    </div>
+                    <p class="text-[10px] uppercase tracking-widest font-bold">Playlist</p>
+                </a>
+                <!--Facebook-->
+                <a href="https://www.facebook.com/fascinoscorpoecabelo" target="_blank" class="group">
+                    <div class="w-16 h-16 mx-auto mb-4 border border-gold-300 rounded-full flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                        <i class="fa-brands fa-facebook text-2xl"></i>
+                    </div>
+                    <p class="text-[10px] uppercase tracking-widest font-bold">Facebook</p>
+                </a>
+
+
+                <!--whatsapp  e instagram Instituto fascino's-->
+                <a href="https://wa.me/5586995029090" target="_blank" class="group">
+                    <div class="w-16 h-16 mx-auto mb-4 border border-gold-300 rounded-full flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition-all duration-300">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    </div>
+                    <p class="text-[10px] uppercase tracking-widest font-bold">Instituto fascino's</p>
+                </a>
+                
+                <a href="https://instagram.com/institutofascinos" target="_blank" class="group">
+                    <div class="w-16 h-16 mx-auto mb-4 border border-gold-300 rounded-full flex items-center justify-center group-hover:bg-pink-400 group-hover:text-white transition-all duration-300">
+                        <i class="fa-brands fa-instagram text-2xl"></i>
+                    </div>
+                    <p class="text-[10px] uppercase tracking-widest font-bold">Instituto fascino's</p>
+                </a>
+
+
+                
+                
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="py-8 bg-onyx border-t border-white/5 text-center">
+        <div class="max-w-6xl mx-auto px-5">
+        
+            <div class="flex justify-center">
+                <img src="assets/fascinos_icone.png" class="w-18 h-14  opacity-70" alt="Fascinos Logo">
+            </div>
+        
+            <p class="text-gray-500 text-[10px] uppercase tracking-[0.2em] mt-4">
+            &copy; 2026 Fascino's. Todos os direitos reservados.
+            </p>            
+        </div>
+    </footer>
+
+
+
+
+    <!-- SCRIPTS -->
+    <script>
+        // Animações de Scroll (Reveal)
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Menu Mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.onclick = () => mobileMenu.classList.remove('translate-x-full');
+        menuClose.onclick = () => mobileMenu.classList.add('translate-x-full');
+        
+        // Fechar menu ao clicar em links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.onclick = () => mobileMenu.classList.add('translate-x-full');
+        });
+
+        // Navbar effect on scroll
+        window.onscroll = () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-2xl');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('py-2', 'shadow-2xl');
+                nav.classList.add('py-4');
+            }
+        };
+    </script>
+</body>
+</html>
+
