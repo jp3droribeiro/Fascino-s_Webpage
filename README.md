@@ -22,6 +22,6 @@ The application allows the user to enter a sequence of numbers, automatically ge
 ## Application Preview
 _Add a screenshot of the application below:_
 
-![Binary Search Tree App](Captura de tela 2026-04-16 193532.png)
-![Binary Search Tree App](https://github.com/jp3droribeiro/Fascino-s_Webpage/edit/main/README.md)
+![Binary Search Tree App](assets/Captura de tela 2026-04-16 193532.png)
+
 ---
