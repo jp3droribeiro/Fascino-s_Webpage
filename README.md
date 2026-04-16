@@ -1,7 +1,7 @@
 # Fascino´s Webpage
 
 ## Overview
-This project is an **interactive visualization** of a **Binary Search Tree (BST)** developed using **Python**, **Streamlit**, **NetworkX**, and **Matplotlib**.  
+.  
 
 
 ---
@@ -11,9 +11,9 @@ This project is an **interactive visualization** of a **Binary Search Tree (BST)
 
 
 
-![Binary Search Tree App](https://github.com/jp3droribeiro/Fascino-s_Webpage/edit/main/README.md)
+![1](assets/Captura de tela 2026-04-16 193653.png)
 
-![Binary Search Tree App](https://github.com/jp3droribeiro/Fascino-s_Webpage/edit/main/README.md)
+![2](assets/Captura de tela 2026-04-16 193532.png)
 
 ---
 
