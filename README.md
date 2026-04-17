@@ -6,7 +6,6 @@ This project is a modern and responsive webpage developed for a beauty studio, b
 ---
 
 ## Preview
-_Add a screenshot of the application below:_
 
 <p align="center">
   <img src="assets/img1.png" width="42%" />
