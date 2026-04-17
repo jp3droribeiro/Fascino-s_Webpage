@@ -8,7 +8,9 @@ This project is a modern and responsive webpage developed for a beauty studio, b
 ## Preview
 _Add a screenshot of the application below:_
 
-![1](assets/img1.png)
-![2](assets/img2.png)
+<p align="center">
+  <img src="assets/img1.png" width="45%" />
+  <img src="assets/img2.png" width="45%" />
+</p>
 
 ---
